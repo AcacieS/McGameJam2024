@@ -62,11 +62,16 @@ class InteractionManager : MonoBehaviour
 
             if (distance < reach && hitObject.TryGetComponent(out Interaction interaction))
             {
+
+                if (interactionObject != null && interactionObject != hitObject)
+                {
+                    interactionObject.GetComponent<Interaction>().NoHit();
+                }
+
                 Debug.Log("Hit " + hitObject.name);
                 interactionObject = hitObject;
                 interaction.OnHit();
                 billboard.SetActive(true);
-
             }
 
             return;
