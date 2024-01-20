@@ -5,10 +5,9 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
-
     public new Camera camera;
-    public float verticalInput;
+    private float verticalInput;
+    private float horizontalInput;
     private Rigidbody playerRb;
     private float speed = 10.0f;
     public float jumpForce = 15.0f;
