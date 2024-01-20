@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 class InteractionManager : MonoBehaviour
 {
@@ -35,7 +36,8 @@ class InteractionManager : MonoBehaviour
                 billboard.SetActive(true);
                 billboardTitle.text = interaction.title;
                 billboardDescription.text = interaction.description;
-                billboard.transform.position = interactionObject.transform.position + new Vector3(0, 1f, 0);
+                Vector3 midpoint = (interactionObject.transform.position + camera.transform.position) / 2;
+                billboard.transform.position = midpoint + new Vector3(0, 1, 0);
                 billboard.transform.rotation = camera.transform.rotation;
             }
 
