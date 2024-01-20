@@ -938,8 +938,8 @@ GameObject:
   - component: {fileID: 1956117134}
   - component: {fileID: 1956117133}
   - component: {fileID: 1956117132}
-  - component: {fileID: 1956117137}
   - component: {fileID: 1956117138}
+  - component: {fileID: 1956117139}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1060,20 +1060,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1956117137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956117131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4fe863ccb8111b458c562f36e51c889, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Cube
-  description: put on the button with E
 --- !u!114 &1956117138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,6 +1078,21 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1956117139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956117131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c577c3a9f609ece4184da230bda5c7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Cube
+  description: Put on the button with E
+  camera: {fileID: 1277273611}
 --- !u!1 &2011628952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 22420191516484053, guid: eeab7087cb55b4f28928ca00d32ae311, type: 3}
