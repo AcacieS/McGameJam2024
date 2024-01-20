@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {   
+    public float horizontalInput;
+    public float verticalInput;
     private Rigidbody playerRb;
     private float speed = 10.0f;
     private float turnSpeed = 40.0f;
@@ -21,14 +23,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
 
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            transform.Rotate(Vector3.up * turnSpeed *Time.deltaTime); 
+        transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalInput);
+        transform.Translate(Vector3.forward * speed *Time.deltaTime * verticalInput); 
     }
     private void OnCollisionEnter(Collision collision)
     {
