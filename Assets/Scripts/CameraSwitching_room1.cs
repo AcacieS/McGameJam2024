@@ -9,17 +9,19 @@ public class CameraSwitching_room1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraRoom1.enabled = false;
+        mainCamera.enabled = true;
         
     }
 
     // Update is called once per frame
     public void ShowCameraAnim(){
         cameraRoom1.enabled = true;
-        mainCamera.enable = false;
+        mainCamera.enabled = false;
         
     }
     public void ShowMainCamera(){
         cameraRoom1.enabled = false;
-        mainCamera.enable = true;
+        mainCamera.enabled = true;
     }
 }

@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 public class SecondChoice : MonoBehaviour
 {
     //public GameObject playerWalk;
+    public GameObject cameraRoom1;
+    public GameObject mainCamera;
+    // Start is called before the first frame update
     void Start()
     {
+        //cameraRoom1.enabled = false;
+        //mainCamera.SetActive
     }
+
+    // Update is called once per frame
+    
 
     // Update is called once per frame
     void Update()
@@ -16,7 +24,9 @@ public class SecondChoice : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Y)){
             Debug.Log("2222Yes");
             //playerWalk.GetComponent<PlayerController>().enabled=true;
-            SceneManager.LoadScene("room1Inside");
+            cameraRoom1.SetActive(true);
+            mainCamera.SetActive(false);
+            //SceneManager.LoadScene("room1Inside");
 
         }else if(Input.GetKeyDown(KeyCode.N)){
             Debug.Log("2222No");
