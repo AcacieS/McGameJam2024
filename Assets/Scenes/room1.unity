@@ -321,17 +321,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8542866227731051208, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
     m_RemovedGameObjects:
     - {fileID: 992199638578140193, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
---- !u!1 &598941403 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6043585168273139304, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
-  m_PrefabInstance: {fileID: 336716085}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &840972419
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &840972420
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -579,7 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d89d661410a04a89a40c04c2072982d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWalk: {fileID: 598941403}
 --- !u!1 &1411514923
 GameObject:
   m_ObjectHideFlags: 0

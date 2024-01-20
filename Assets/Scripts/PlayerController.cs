@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
 
         Physics.gravity *= gravityModifier;
-        playerAudio.loop = true;
+        //playerAudio.loop = true;
     }
 
     // Update is called once per frame
