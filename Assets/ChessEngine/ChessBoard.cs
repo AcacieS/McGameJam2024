@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 
-struct XY
+public struct XY
 {
     public int x;
     public int y;
 }
 
-struct PieceMove
+public struct PieceMove
 {
     public ChessPiece piece;
     public XY move;
     public XY position;
 }
 
-class ChessBoard
+public class ChessBoard
 {
     private readonly ChessPiece[][] board;
 

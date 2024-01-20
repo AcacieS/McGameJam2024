@@ -1,4 +1,4 @@
-abstract class ChessPiece
+public abstract class ChessPiece
 {
     public ChessPiece(bool isPlayer)
     {
@@ -8,6 +8,8 @@ abstract class ChessPiece
     public abstract XY[] GetMoves(int x, int y, ChessPiece[][] board);
 
     public abstract int[][] GetScores();
+
+    public abstract string GetName();
 
     public abstract int GetValue();
 

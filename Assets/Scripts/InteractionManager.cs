@@ -10,7 +10,7 @@ class InteractionManager : MonoBehaviour
 
     public float reach = 100;
 
-
+    public GameObject grabbedObject;
 
     private GameObject interactionObject;
 
@@ -27,7 +27,8 @@ class InteractionManager : MonoBehaviour
         billboardDescription = GameObject.Find("BillboardDescription").GetComponent<TextMesh>();
         billboard.SetActive(false);
     }
-    public void Update()
+
+    public void HandleRaycast()
     {
         Debug.DrawRay(raycastObject.transform.position, raycastObject.transform.forward * 100, Color.red);
 
@@ -68,7 +69,6 @@ class InteractionManager : MonoBehaviour
 
             }
 
-
             return;
         }
 
@@ -79,6 +79,14 @@ class InteractionManager : MonoBehaviour
             interactionObject = null;
             billboard.SetActive(false);
         }
+    }
+    public void Update()
+    {
+        HandleRaycast();
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            interactionObject?.GetComponent<Interaction>().OnInteration();
+        }
     }
 }

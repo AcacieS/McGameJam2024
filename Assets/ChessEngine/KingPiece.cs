@@ -1,6 +1,8 @@
 class KingPiece : DirectionalPiece
 {
 
+
+
     private static readonly int[][] scores = new int[][] {
         new int[] { -30, -40, -40, -50, -50, -40, -40, -30 },
         new int[] { -30, -40, -40, -50, -50, -40, -40, -30 },
@@ -34,5 +36,10 @@ class KingPiece : DirectionalPiece
     public override int GetValue()
     {
         return 10000;
+    }
+
+    public override string GetName()
+    {
+        return "King";
     }
 }

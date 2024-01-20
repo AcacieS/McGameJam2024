@@ -38,6 +38,11 @@ class PawnPiece : ChessPiece
         return moves;
     }
 
+    public override string GetName()
+    {
+        return "Pawn";
+    }
+
     public override int[][] GetScores()
     {
         return isPlayer ? scores : ennemyScores;

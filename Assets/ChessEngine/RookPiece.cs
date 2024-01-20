@@ -22,6 +22,10 @@ class RookPiece : DirectionalPiece
     };
     public RookPiece(bool isPlayer) : base(isPlayer, directions, false) { }
 
+    public override string GetName()
+    {
+        return "Rook";
+    }
 
     public override int[][] GetScores()
     {

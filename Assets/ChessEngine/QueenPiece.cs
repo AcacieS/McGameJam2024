@@ -14,6 +14,11 @@ class QueenPiece : DirectionalPiece
     static readonly int[][] ennemyScores = ReverseScores(scores);
     public QueenPiece(bool isPlayer) : base(isPlayer, KingPiece.directions, false) { }
 
+    public override string GetName()
+    {
+        return "Queen";
+    }
+
     public override int[][] GetScores()
     {
         return isPlayer ? scores : ennemyScores;

@@ -1,6 +1,8 @@
 class BishopPiece : DirectionalPiece
 {
 
+    
+
     static readonly int[][] scores = new int[][] {
         new int[] { -20, -10, -10, -10, -10, -10, -10, -20 },
         new int[] { -10, 0, 0, 0, 0, 0, 0, -10 },
@@ -21,6 +23,11 @@ class BishopPiece : DirectionalPiece
         new () { x = 1, y = -1 },
     };
     public BishopPiece(bool isPlayer) : base(isPlayer, directions, false) { }
+
+    public override string GetName()
+    {
+        return "Bishop";
+    }
 
     public override int[][] GetScores()
     {

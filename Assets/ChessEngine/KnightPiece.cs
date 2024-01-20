@@ -26,6 +26,11 @@ class KnightPiece : DirectionalPiece
     };
     public KnightPiece(bool isPlayer) : base(isPlayer, directions, true) { }
 
+    public override string GetName()
+    {
+        return "Knight";
+    }
+
     public override int[][] GetScores()
     {
         return isPlayer ? scores : ennemyScores;
