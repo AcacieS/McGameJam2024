@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     public new Camera camera;
+    private AudioSource playerAudio;
+    public AudioClip footStepSound;
     private float verticalInput;
     private float horizontalInput;
     private Rigidbody playerRb;
@@ -17,7 +19,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
+
         Physics.gravity *= gravityModifier;
+        playerAudio.loop = true;
     }
 
     // Update is called once per frame
@@ -35,6 +40,9 @@ public class PlayerController : MonoBehaviour
         Vector3 left = Quaternion.AngleAxis(90, Vector3.up) * forward;
         transform.Translate(forward * speed * Time.deltaTime * verticalInput);
         transform.Translate(left * speed * Time.deltaTime * horizontalInput);
+        if (verticalInput != 0 || horizontalInput != 0) {
+            playerAudio.PlayOneShot(footStepSound);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
