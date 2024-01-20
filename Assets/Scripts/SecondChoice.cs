@@ -16,7 +16,7 @@ public class SecondChoice : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Y)){
             Debug.Log("2222Yes");
             //playerWalk.GetComponent<PlayerController>().enabled=true;
-            SceneManager.LoadScene("test");
+            SceneManager.LoadScene("room1Inside");
 
         }else if(Input.GetKeyDown(KeyCode.N)){
             Debug.Log("2222No");

@@ -357,10 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62fc4acca4e4e4fe591647cc2aaf2736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInput: 0
   camera: {fileID: 5735115107144072484}
-  verticalInput: 0
-  jumpForce: 15
+  jumpForce: 10
   gravityModifier: 2
   isOnGround: 1
 --- !u!54 &8542866227731051208
