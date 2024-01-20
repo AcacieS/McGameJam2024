@@ -24,6 +24,17 @@ class InteractionManager : MonoBehaviour
     public void Update()
     {
         Debug.DrawRay(raycastObject.transform.position, raycastObject.transform.forward * 100, Color.red);
+
+        if (interactionObject != null)
+        {
+            Interaction interaction = interactionObject.GetComponent<Interaction>();
+            billboardTitle.text = interaction.title;
+            billboardDescription.text = interaction.description;
+            Vector3 midpoint = (interactionObject.transform.position + camera.transform.position) / 2;
+            billboard.transform.position = midpoint + new Vector3(0, 1, 0);
+            billboard.transform.rotation = camera.transform.rotation;
+        }
+
         if (Physics.Raycast(raycastObject.transform.position, raycastObject.transform.forward, out RaycastHit hit))
         {
 
@@ -34,11 +45,7 @@ class InteractionManager : MonoBehaviour
                 interactionObject = hit.collider.gameObject;
                 interaction.OnHit();
                 billboard.SetActive(true);
-                billboardTitle.text = interaction.title;
-                billboardDescription.text = interaction.description;
-                Vector3 midpoint = (interactionObject.transform.position + camera.transform.position) / 2;
-                billboard.transform.position = midpoint + new Vector3(0, 1, 0);
-                billboard.transform.rotation = camera.transform.rotation;
+
             }
 
 
