@@ -1,46 +1,48 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
-{   
+{
     public float horizontalInput;
+
+    public new Camera camera;
     public float verticalInput;
     private Rigidbody playerRb;
     private float speed = 10.0f;
-    private float turnSpeed = 40.0f;
     public float jumpForce = 15.0f;
     public float gravityModifier = 2;
     public bool isOnGround = true;
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         playerRb = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityModifier; 
+        Physics.gravity *= gravityModifier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
-
-        transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalInput);
-        transform.Translate(Vector3.forward * speed *Time.deltaTime * verticalInput); 
+        Vector3 forward = new(camera.transform.forward.x, 0, camera.transform.forward.z);
+        Vector3 left = Quaternion.AngleAxis(90, Vector3.up) * forward;
+        transform.Translate(forward * speed * Time.deltaTime * verticalInput);
+        transform.Translate(left * speed * Time.deltaTime * horizontalInput);
     }
     private void OnCollisionEnter(Collision collision)
     {
-         if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-           isOnGround = true; 
-           }
+            isOnGround = true;
+        }
 
     }
 }
