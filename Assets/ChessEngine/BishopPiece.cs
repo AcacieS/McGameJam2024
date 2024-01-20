@@ -1,6 +1,3 @@
-using System;
-using UnityEditor.Build.Player;
-
 class BishopPiece : DirectionalPiece
 {
 
