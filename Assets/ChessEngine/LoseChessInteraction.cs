@@ -15,5 +15,6 @@ class LoseChessInteraction: Interaction {
     {
         Debug.Log("Interacted with " + title);
         manager.ResetBoard();
+        
     }
 }
