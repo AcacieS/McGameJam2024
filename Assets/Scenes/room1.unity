@@ -333,11 +333,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6779035010085919616, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
   m_PrefabInstance: {fileID: 336716085}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &834753151 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5735115107144072484, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
-  m_PrefabInstance: {fileID: 336716085}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &840972419
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,52 +436,6 @@ Transform:
   m_LocalPosition: {x: -0.4347893, y: -2.0996914, z: 3.7446327}
   m_LocalScale: {x: 2000, y: 2000, z: 2000}
   m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &842420846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 842420848}
-  - component: {fileID: 842420847}
-  m_Layer: 0
-  m_Name: cameraSwitch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &842420847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842420846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b711a010e5477cabab93faeae2131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraRoom1: {fileID: 1449616139}
-  mainCamera: {fileID: 834753151}
---- !u!4 &842420848
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842420846}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.507835, y: -3.3006177, z: 5.5493774}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -633,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRoom1: {fileID: 1449616137}
   mainCamera: {fileID: 834753150}
+  sphereObject: {fileID: 1832108063}
 --- !u!1 &1411514923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,4 +956,3 @@ SceneRoots:
   - {fileID: 1832108067}
   - {fileID: 1411514925}
   - {fileID: 864796849}
-  - {fileID: 842420848}

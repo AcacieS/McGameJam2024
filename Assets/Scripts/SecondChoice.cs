@@ -8,6 +8,7 @@ public class SecondChoice : MonoBehaviour
     //public GameObject playerWalk;
     public GameObject cameraRoom1;
     public GameObject mainCamera;
+    public GameObject sphereObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class SecondChoice : MonoBehaviour
             //playerWalk.GetComponent<PlayerController>().enabled=true;
             cameraRoom1.SetActive(true);
             mainCamera.SetActive(false);
+            //sphereObject.SetActive(false);
             //SceneManager.LoadScene("room1Inside");
 
         }else if(Input.GetKeyDown(KeyCode.N)){
