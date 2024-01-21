@@ -1,3 +1,7 @@
+
+
+using UnityEngine;
+
 class PawnPiece : ChessPiece
 {
 
@@ -18,23 +22,29 @@ class PawnPiece : ChessPiece
 
     public override XY[] GetMoves(int x, int y, ChessPiece[][] board)
     {
+        int dy = isPlayer ? 1 : -1;
         int canForward = 0;
         int canEatLeft = 0;
         int canEatRight = 0;
-        if (IsValid(x, y + 1, board))
+        if (IsValid(x, y + dy, board))
             canForward = 1;
-        if (IsEnemy(x + 1, y + 1, board))
+        if (IsEnemy(x + 1, y + dy, board))
             canEatRight = 1;
-        if (IsEnemy(x - 1, y + 1, board))
+        if (IsEnemy(x - 1, y + dy, board))
             canEatLeft = 1;
         XY[] moves = new XY[canForward + canEatLeft + canEatRight];
         int i = 0;
         if (canForward == 1)
-            moves[i++] = new XY { x = 0, y = 1 };
+            moves[i++] = new XY { x = 0, y = dy };
         if (canEatLeft == 1)
-            moves[i++] = new XY { x = -1, y = 1 };
+            moves[i++] = new XY { x = -1, y = dy };
         if (canEatRight == 1)
-            moves[i++] = new XY { x = 1, y = 1 };
+            moves[i++] = new XY { x = 1, y = dy };
+        foreach (XY move in moves)
+        {
+            Debug.Log(x + " " + y + " " + move.x + " " + move.y);
+            Debug.LogError(move);
+        }
         return moves;
     }
 

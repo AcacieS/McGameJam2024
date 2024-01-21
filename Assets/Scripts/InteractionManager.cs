@@ -52,7 +52,6 @@ class InteractionManager : MonoBehaviour
 
         if (Physics.Raycast(raycastObject.transform.position, raycastObject.transform.forward, out RaycastHit hit, reach))
         {
-            Debug.Log("Hit " + hit.collider.gameObject.name);
 
             GameObject hitObject = hit.collider.gameObject;
 
@@ -68,7 +67,6 @@ class InteractionManager : MonoBehaviour
                     interactionObject.GetComponent<Interaction>().NoHit();
                 }
 
-                Debug.Log("Hit " + hitObject.name);
                 interactionObject = hitObject;
                 interaction.OnHit();
                 billboard.SetActive(true);
@@ -79,7 +77,6 @@ class InteractionManager : MonoBehaviour
 
         if (interactionObject != null)
         {
-            Debug.Log("No hit");
             interactionObject.GetComponent<Interaction>().NoHit();
             interactionObject = null;
             billboard.SetActive(false);

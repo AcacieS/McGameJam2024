@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public struct XY
 {
@@ -11,6 +12,7 @@ public struct PieceMove
     public ChessPiece piece;
     public XY move;
     public XY position;
+    public ChessPiece target;
 }
 
 public class ChessBoard
@@ -60,6 +62,7 @@ public class ChessBoard
         int dx = pieceMove.move.x;
         int dy = pieceMove.move.y;
         board[y][x] = null;
+        pieceMove.target = board[y + dy][x + dx];
         board[y + dy][x + dx] = pieceMove.piece;
     }
 
@@ -70,7 +73,7 @@ public class ChessBoard
         int dx = pieceMove.move.x;
         int dy = pieceMove.move.y;
         board[y][x] = pieceMove.piece;
-        board[y + dy][x + dx] = null;
+        board[y + dy][x + dx] = pieceMove.target;
     }
 
     public int Evaluate()
@@ -89,11 +92,11 @@ public class ChessBoard
         return score;
     }
 
-    public PieceMove GetBestMove(bool isPlayer, int depth)
+    public PieceMove? GetBestMove(bool isPlayer, int depth)
     {
         PieceMove[] moves = GetPieceMoves(isPlayer);
         int bestScore = isPlayer ? int.MinValue : int.MaxValue;
-        PieceMove bestMove = new PieceMove();
+        PieceMove? bestMove = null;
         foreach (PieceMove move in moves)
         {
             ApplyPieceMove(move);

@@ -11,7 +11,8 @@ class SquareInteraction : Interaction
 
     public override void OnAction()
     {
-       Debug.Log("Interacted with " + title);
+        boardManager.MoveSelectedTo(x, y);
+        boardManager.EnnemyMove();
     }
 
     public override bool IsAvailable()
