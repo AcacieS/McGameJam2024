@@ -33,7 +33,7 @@ public class ChessBoardManager : MonoBehaviour
                 interaction.x = j;
                 interaction.title = "Square " + j + "," + i;
                 interaction.description = "Press E to move the selected piece to this square";
-                square.transform.position = new Vector3(j, 1, i);
+                square.transform.localPosition = new Vector3(j, 1, i);
                 square.SetActive(true);
                 board[i][j] = square;
                 isWhite = !isWhite;
@@ -52,14 +52,14 @@ public class ChessBoardManager : MonoBehaviour
         AddPiece(new KnightPiece(true), 6, 0);
         AddPiece(new RookPiece(true), 7, 0);
 
-        // AddPiece(new PawnPiece(true), 0, 1);
-        // AddPiece(new PawnPiece(true), 1, 1);
-        // AddPiece(new PawnPiece(true), 2, 1);
-        // AddPiece(new PawnPiece(true), 3, 1);
-        // AddPiece(new PawnPiece(true), 4, 1);
-        // AddPiece(new PawnPiece(true), 5, 1);
-        // AddPiece(new PawnPiece(true), 6, 1);
-        // AddPiece(new PawnPiece(true), 7, 1);
+        AddPiece(new PawnPiece(true), 0, 1);
+        AddPiece(new PawnPiece(true), 1, 1);
+        AddPiece(new PawnPiece(true), 2, 1);
+        AddPiece(new PawnPiece(true), 3, 1);
+        AddPiece(new PawnPiece(true), 4, 1);
+        AddPiece(new PawnPiece(true), 5, 1);
+        AddPiece(new PawnPiece(true), 6, 1);
+        AddPiece(new PawnPiece(true), 7, 1);
 
         AddPiece(new RookPiece(false), 0, 7);
         AddPiece(new KnightPiece(false), 1, 7);
@@ -90,7 +90,7 @@ public class ChessBoardManager : MonoBehaviour
         Debug.Log(name);
         GameObject pieceObject = Resources.Load<GameObject>(name);
         GameObject cloned = Instantiate(pieceObject, gameObject.transform);
-        cloned.transform.position = new Vector3(x, 1, y);
+        cloned.transform.localPosition = new Vector3(x, GetPieceHeight(name), y);
         cloned.SetActive(true);
         pieces[y][x] = cloned;
 
@@ -186,7 +186,7 @@ public class ChessBoardManager : MonoBehaviour
         }
         pieces[y][x] = pieces[y0][x0];
         pieces[y0][x0] = null;
-        pieces[y][x].transform.position = new Vector3(x, 1, y);
+        pieces[y][x].transform.localPosition = new Vector3(x, pieces[y][x].transform.localPosition.y, y);
         ResetSquares();
         isPlayerTurn = !isPlayerTurn;
         selectedPiece = null;
@@ -211,6 +211,17 @@ public class ChessBoardManager : MonoBehaviour
         {
             Debug.Log("No move found");
         }
+    }
+
+    private float GetPieceHeight(string name)
+    {
+        return name switch
+        {
+            "Knight" => 1.5f,
+            "Bishop" => 1.7f,
+            "King" => 1.8f,
+            _ => 1,
+        };
     }
 
     // Update is called once per frame

@@ -16,7 +16,7 @@ abstract class DirectionalPiece : ChessPiece
         {
             int dx = direction.x;
             int dy = direction.y;
-            while (IsValid(x + dx, y + dy, board))
+            while (IsEmpty(x + dx, y + dy, board))
             {
                 moves.Add(new XY { x = dx, y = dy });
                 if (once)
@@ -24,6 +24,8 @@ abstract class DirectionalPiece : ChessPiece
                 dx += direction.x;
                 dy += direction.y;
             }
+            if (IsValid(x + dx, y + dy, board))
+                moves.Add(new XY { x = dx, y = dy });
         }
         return moves.ToArray();
     }

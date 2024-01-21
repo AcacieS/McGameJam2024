@@ -131,4 +131,24 @@ public class ChessBoard
         }
         return isPlayer ? alpha : beta;
     }
+
+    void PrintBoard() {
+        string boardString = "";
+        foreach (ChessPiece[] row in board)
+        {
+            foreach (ChessPiece piece in row)
+            {
+                if (piece != null)
+                {
+                    boardString += piece.GetName();
+                }
+                else
+                {
+                    boardString += " ";
+                }
+            }
+            boardString += "\n";
+        }
+        Debug.Log(boardString);
+    }
 }

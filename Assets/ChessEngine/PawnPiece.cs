@@ -23,16 +23,20 @@ class PawnPiece : ChessPiece
     public override XY[] GetMoves(int x, int y, ChessPiece[][] board)
     {
         int dy = isPlayer ? 1 : -1;
+        int canDoubleForward = 0;
         int canForward = 0;
         int canEatLeft = 0;
         int canEatRight = 0;
+        if (y == 1 && isPlayer || y == 6 && !isPlayer)
+            if (IsValid(x, y + dy + dy, board))
+            canDoubleForward = 1;
         if (IsValid(x, y + dy, board))
             canForward = 1;
         if (IsEnemy(x + 1, y + dy, board))
             canEatRight = 1;
         if (IsEnemy(x - 1, y + dy, board))
             canEatLeft = 1;
-        XY[] moves = new XY[canForward + canEatLeft + canEatRight];
+        XY[] moves = new XY[canForward + canEatLeft + canEatRight + canDoubleForward];
         int i = 0;
         if (canForward == 1)
             moves[i++] = new XY { x = 0, y = dy };
@@ -40,11 +44,8 @@ class PawnPiece : ChessPiece
             moves[i++] = new XY { x = -1, y = dy };
         if (canEatRight == 1)
             moves[i++] = new XY { x = 1, y = dy };
-        foreach (XY move in moves)
-        {
-            Debug.Log(x + " " + y + " " + move.x + " " + move.y);
-            Debug.LogError(move);
-        }
+        if (canDoubleForward == 1)
+            moves[i++] = new XY { x = 0, y = dy + dy };
         return moves;
     }
 

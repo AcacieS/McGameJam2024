@@ -35,6 +35,7 @@ class InteractionManager : MonoBehaviour
         if (interactionObject != null)
         {
             Interaction interaction = interactionObject.GetComponent<Interaction>();
+            Debug.Log("Interacting with " + interactionObject);
             billboardTitle.text = interaction.title;
             billboardDescription.text = interaction.description;
             Vector3 difference = interactionObject.transform.position - camera.transform.position;
