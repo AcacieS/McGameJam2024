@@ -7,12 +7,19 @@ public struct XY
     public int y;
 }
 
-public struct PieceMove
+public class PieceMove
 {
     public ChessPiece piece;
     public XY move;
     public XY position;
     public ChessPiece target;
+
+    public PieceMove(ChessPiece piece, XY move, XY position)
+    {
+        this.piece = piece;
+        this.move = move;
+        this.position = position;
+    }
 }
 
 public class ChessBoard
@@ -42,7 +49,7 @@ public class ChessBoard
                     foreach (XY move in pieceMoves)
                     {
                         XY position = new() { x = x, y = y };
-                        moves.Add(new PieceMove { piece = piece, move = move, position = position });
+                        moves.Add(new PieceMove(piece, move, position));
                     }
                 }
             }
@@ -79,30 +86,31 @@ public class ChessBoard
     public int Evaluate()
     {
         int score = 0;
-        foreach (ChessPiece[] row in board)
-        {
-            foreach (ChessPiece piece in row)
+        for (int y = 0; y < 8; y++)
+            for (int x = 0; x < 8; x++)
             {
+                ChessPiece piece = board[y][x];
                 if (piece != null)
                 {
-                    score += piece.GetValue();
+                    int[][] scores = piece.GetScores();
+                    int sign = piece.isPlayer ? 1 : -1;
+                    score += (scores[y][x] + piece.GetValue()) * sign;
                 }
             }
-        }
         return score;
     }
 
-    public PieceMove? GetBestMove(bool isPlayer, int depth)
+    public PieceMove GetBestMove(bool isPlayer, int depth)
     {
         PieceMove[] moves = GetPieceMoves(isPlayer);
-        int bestScore = isPlayer ? int.MinValue : int.MaxValue;
-        PieceMove? bestMove = null;
+        int bestScore = int.MinValue;
+        PieceMove bestMove = null;
         foreach (PieceMove move in moves)
         {
             ApplyPieceMove(move);
             int score = Minimax(depth - 1, !isPlayer, int.MinValue, int.MaxValue);
             UndoPieceMove(move);
-            if (isPlayer && score > bestScore || !isPlayer && score < bestScore)
+            if (isPlayer && score < bestScore || !isPlayer && score > bestScore)
             {
                 bestScore = score;
                 bestMove = move;
@@ -114,25 +122,21 @@ public class ChessBoard
     private int Minimax(int depth, bool isPlayer, int alpha, int beta)
     {
         if (depth == 0)
-            return Evaluate();
+            return -Evaluate();
 
-        PieceMove[] moves = GetPieceMoves(isPlayer);
-        foreach (PieceMove move in moves)
+        int best = isPlayer ? int.MinValue : int.MaxValue;
+        foreach (PieceMove move in  GetPieceMoves(isPlayer))
         {
             ApplyPieceMove(move);
             int score = Minimax(depth - 1, !isPlayer, alpha, beta);
             UndoPieceMove(move);
-            if (isPlayer)
-                alpha = System.Math.Max(alpha, score);
-            else
-                beta = System.Math.Min(beta, score);
-            if (beta <= alpha)
-                break;
+            best = isPlayer ? Mathf.Max(best, score) : Mathf.Min(best, score);
         }
-        return isPlayer ? alpha : beta;
+        return best;
     }
 
-    void PrintBoard() {
+    public void PrintBoard()
+    {
         string boardString = "";
         foreach (ChessPiece[] row in board)
         {
@@ -140,11 +144,20 @@ public class ChessBoard
             {
                 if (piece != null)
                 {
-                    boardString += piece.GetName();
+                    string name = piece.GetName();
+                    if (name == "Knight")
+                    {
+                        name = "N";
+                    }
+                    if (piece.isPlayer)
+                    {
+                        name = name.ToLower();
+                    }
+                    boardString += name[0] + "\t";
                 }
                 else
                 {
-                    boardString += " ";
+                    boardString += "." + "\t";
                 }
             }
             boardString += "\n";

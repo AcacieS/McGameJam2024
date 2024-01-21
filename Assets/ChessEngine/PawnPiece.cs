@@ -28,9 +28,9 @@ class PawnPiece : ChessPiece
         int canEatLeft = 0;
         int canEatRight = 0;
         if (y == 1 && isPlayer || y == 6 && !isPlayer)
-            if (IsValid(x, y + dy + dy, board))
+            if (IsEmpty(x, y + dy + dy, board))
             canDoubleForward = 1;
-        if (IsValid(x, y + dy, board))
+        if (IsEmpty(x, y + dy, board))
             canForward = 1;
         if (IsEnemy(x + 1, y + dy, board))
             canEatRight = 1;

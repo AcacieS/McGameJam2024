@@ -6,13 +6,18 @@ public class ChessBoardManager : MonoBehaviour
     private GameObject[][] board;
     private GameObject[][] pieces;
 
-    private readonly ChessBoard chessBoard = new();
+    private GameObject winSphere;
+    private GameObject loseSphere;
+
+    private ChessBoard chessBoard = new();
 
     public GameObject selectedPiece;
     public bool isPlayerTurn = true;
 
     public void Start()
     {
+        winSphere = GameObject.Find("Win Sphere");
+        loseSphere = GameObject.Find("Lose Sphere");
         GameObject whiteSquare = GameObject.Find("White Square");
         GameObject blackSquare = GameObject.Find("Black Square");
         whiteSquare.SetActive(false);
@@ -41,7 +46,35 @@ public class ChessBoardManager : MonoBehaviour
             isWhite = !isWhite;
         }
 
+        ResetBoard();
+    }
 
+    public void ResetBoard()
+    {
+        RemoveAll();
+        chessBoard = new ChessBoard();
+        InitPieces();
+        isPlayerTurn = true;
+        winSphere.SetActive(false);
+        loseSphere.SetActive(false);
+    }
+
+    void RemoveAll()
+    {
+        foreach (GameObject[] row in pieces)
+            foreach (GameObject piece in row)
+                if (piece != null)
+                    Destroy(piece);
+
+        for (int y = 0; y < 8; y++)
+            for (int x = 0; x < 8; x++)
+            {
+                pieces[y][x] = null;
+            }
+    }
+
+    void InitPieces()
+    {
 
         AddPiece(new RookPiece(true), 0, 0);
         AddPiece(new KnightPiece(true), 1, 0);
@@ -96,17 +129,16 @@ public class ChessBoardManager : MonoBehaviour
 
         if (piece.isPlayer)
         {
-
             PieceInteraction interation = cloned.AddComponent<PieceInteraction>();
             interation.title = name;
-            interation.description = "Press E to select this piece to move it";
+            interation.description = "Press E to select this piece\nto move it";
             interation.boardManager = this;
         }
         else
         {
             SquareInteraction squareInteraction = cloned.AddComponent<SquareInteraction>();
-            squareInteraction.title = "Square " + x + "," + y;
-            squareInteraction.description = "Press E to move the selected piece to this square";
+            squareInteraction.title = "Ennemy " + name;
+            squareInteraction.description = "Press E to move the selected piece\nto this square";
         }
 
         MeshRenderer meshRenderer = cloned.GetComponent<MeshRenderer>();
@@ -173,16 +205,23 @@ public class ChessBoardManager : MonoBehaviour
     public void MoveFromTo(int x0, int y0, int x, int y)
     {
         ChessPiece piece = chessBoard.board[y0][x0];
-        chessBoard.ApplyPieceMove(new PieceMove
-        {
-            move = new XY { x = x - x0, y = y - y0 },
-            piece = piece,
-            position = new XY { x = x0, y = y0 }
-        });
+        ChessPiece deadPiece = chessBoard.board[y][x];
+        GameObject deadPieceObject = pieces[y][x];
+        chessBoard.ApplyPieceMove(new PieceMove(piece, new XY { x = x - x0, y = y - y0 }, new XY { x = x0, y = y0 }));
 
-        if (pieces[y][x] != null)
+        if (deadPiece != null)
         {
-            Destroy(pieces[y][x]);
+            if (deadPiece.GetName() == "King")
+            {
+                if (deadPiece.isPlayer)
+                    loseSphere.SetActive(true);
+                else
+                    winSphere.SetActive(true);
+            }
+        }
+        if (deadPieceObject != null)
+        {
+            Destroy(deadPieceObject);
         }
         pieces[y][x] = pieces[y0][x0];
         pieces[y0][x0] = null;
@@ -200,17 +239,20 @@ public class ChessBoardManager : MonoBehaviour
 
     public void EnnemyMove()
     {
-        PieceMove? bestMove = chessBoard.GetBestMove(false, 3);
+        chessBoard.PrintBoard();
+        PieceMove bestMove = chessBoard.GetBestMove(false, 3);
         if (bestMove != null)
         {
-            Debug.LogWarning("Ennemy move: " + bestMove.Value.piece.GetName() + " " + bestMove.Value.move.x + " " + bestMove.Value.move.y);
-            MoveFromTo(bestMove.Value.position.x, bestMove.Value.position.y, bestMove.Value.position.x + bestMove.Value.move.x, bestMove.Value.position.y + bestMove.Value.move.y);
+            Debug.LogWarning("Ennemy move: " + bestMove.piece.GetName() + " " + bestMove.move.x + " " + bestMove.move.y);
+            MoveFromTo(bestMove.position.x, bestMove.position.y, bestMove.position.x + bestMove.move.x, bestMove.position.y + bestMove.move.y);
             isPlayerTurn = true;
         }
         else
         {
             Debug.Log("No move found");
+            winSphere.SetActive(true);
         }
+        chessBoard.PrintBoard();
     }
 
     private float GetPieceHeight(string name)
