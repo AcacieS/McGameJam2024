@@ -310,6 +310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastObject: {fileID: 1277273610}
+  billboardDistance: 1
+  reach: 50
+  grabbedObject: {fileID: 0}
   camera: {fileID: 1277273611}
 --- !u!1001 &536677158
 PrefabInstance:
@@ -337,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621181467308260999, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6112.1
+      value: -6099
       objectReference: {fileID: 0}
     - target: {fileID: 1621181467308260999, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
       propertyPath: m_LocalPosition.y
@@ -384,8 +387,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9200038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.08453648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.38107806
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921619491634704873, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.035016157
       objectReference: {fileID: 0}
     - target: {fileID: 6043585168273139304, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
       propertyPath: m_Name
@@ -688,15 +715,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3587952855944948930, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3587952855944948930, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3587952855944948930, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3587952855944948930, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -741,6 +768,18 @@ PrefabInstance:
     - target: {fileID: 3587952855944948930, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055817679977578578, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055817679977578578, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055817679977578578, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5404009416216560880, guid: 4314feed9f930ec42bf7872b3abdc0ad, type: 3}
       propertyPath: m_LocalScale.x
@@ -938,7 +977,6 @@ GameObject:
   - component: {fileID: 1956117134}
   - component: {fileID: 1956117133}
   - component: {fileID: 1956117132}
-  - component: {fileID: 1956117138}
   - component: {fileID: 1956117139}
   m_Layer: 0
   m_Name: Cube
@@ -1060,24 +1098,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1956117138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956117131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0.07075471, b: 0.07075471, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1956117139
 MonoBehaviour:
   m_ObjectHideFlags: 0
