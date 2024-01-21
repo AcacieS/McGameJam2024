@@ -15,7 +15,7 @@ public struct PieceMove
 
 public class ChessBoard
 {
-    private readonly ChessPiece[][] board;
+    public readonly ChessPiece[][] board;
 
     public ChessBoard()
     {
@@ -39,13 +39,18 @@ public class ChessBoard
                     XY[] pieceMoves = piece.GetMoves(x, y, board);
                     foreach (XY move in pieceMoves)
                     {
-                        XY position = new XY { x = x, y = y };
+                        XY position = new() { x = x, y = y };
                         moves.Add(new PieceMove { piece = piece, move = move, position = position });
                     }
                 }
             }
         }
         return moves.ToArray();
+    }
+
+    public void AddPiece(ChessPiece piece, int x, int y)
+    {
+        board[y][x] = piece;
     }
 
     public void ApplyPieceMove(PieceMove pieceMove)

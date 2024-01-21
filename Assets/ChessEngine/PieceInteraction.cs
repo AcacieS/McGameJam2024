@@ -2,8 +2,17 @@ using UnityEngine;
 
 class PieceInteraction : Interaction
 {
-    public void OnInteraction()
+
+    public ChessBoardManager boardManager;
+
+    public override bool IsAvailable()
     {
-        Debug.Log("Interacted with " + title);
+        return boardManager.isPlayerTurn;
+    }
+
+    public override void OnAction()
+    {
+        boardManager.selectedPiece = gameObject;
+        boardManager.ShowMovesForSelected();
     }
 }

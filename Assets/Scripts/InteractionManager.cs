@@ -60,7 +60,7 @@ class InteractionManager : MonoBehaviour
 
 
 
-            if (distance < reach && hitObject.TryGetComponent(out Interaction interaction))
+            if (distance < reach && hitObject.TryGetComponent(out Interaction interaction) && interaction.IsAvailable())
             {
 
                 if (interactionObject != null && interactionObject != hitObject)
@@ -91,7 +91,7 @@ class InteractionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            interactionObject?.GetComponent<Interaction>().OnInteration();
+            interactionObject?.GetComponent<Interaction>().OnAction();
         }
     }
 }

@@ -1,14 +1,15 @@
 using UnityEngine;
 
-class Interaction : MonoBehaviour
+abstract class Interaction : MonoBehaviour
 {
-    public void OnInteration()
-    {
-        Debug.Log("Interacted with " + title);
-    }
+    public abstract void OnAction();
 
     public string title;
     public string description;
+
+    public virtual bool IsAvailable() {
+        return true;
+    }
 
     private Outline outline;
 
