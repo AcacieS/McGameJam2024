@@ -1630,6 +1630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tutoSound
       objectReference: {fileID: 0}
+    - target: {fileID: 3484941919098823499, guid: f7ee04b09768e491aa33264a46698325, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 40102cd90933449b9b1bfb345d9fa5e8, type: 3}
     - target: {fileID: 3652969750704673280, guid: f7ee04b09768e491aa33264a46698325, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5228.4
