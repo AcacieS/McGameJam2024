@@ -480,8 +480,9 @@ GameObject:
   - component: {fileID: 339169824}
   - component: {fileID: 339169823}
   - component: {fileID: 339169827}
+  - component: {fileID: 339169828}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,6 +597,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &339169828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339169822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4779bd7cc2dcf41619d05a21088977e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeObject: {fileID: 0}
+  spotLight: {fileID: 1672979918}
 --- !u!1 &356327437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,8 +1216,9 @@ GameObject:
   - component: {fileID: 523001574}
   - component: {fileID: 523001573}
   - component: {fileID: 523001572}
+  - component: {fileID: 523001576}
   m_Layer: 0
-  m_Name: Platform (6)
+  m_Name: blackPlatform2
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,7 +1280,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0ffa21a4ef7bde845b29614af0a97799, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1294,6 +1310,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523001570}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &523001576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523001570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb04d1c797c341208f738f4b53fb541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 1919332046}
 --- !u!1 &590639505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6219f2581c5804c8994bc28d8b9d0827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 1919332046}
 --- !u!1 &764424426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,7 +1951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &866242384
 Transform:
   m_ObjectHideFlags: 0
@@ -2259,7 +2289,7 @@ GameObject:
   - component: {fileID: 1037214883}
   - component: {fileID: 1037214882}
   m_Layer: 0
-  m_Name: ball (1)
+  m_Name: secondBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2555,6 +2585,7 @@ GameObject:
   - component: {fileID: 1222305494}
   - component: {fileID: 1222305493}
   - component: {fileID: 1222305496}
+  - component: {fileID: 1222305497}
   m_Layer: 0
   m_Name: Platform (5)
   m_TagString: Ground
@@ -2678,6 +2709,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1222305497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222305491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb04d1c797c341208f738f4b53fb541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 1919332046}
 --- !u!1 &1239085189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,6 +2837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245043671}
   - component: {fileID: 1245043672}
+  - component: {fileID: 1245043673}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Ground
@@ -2843,6 +2888,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1245043673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245043670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6219f2581c5804c8994bc28d8b9d0827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 0}
 --- !u!1 &1296942119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,6 +3163,7 @@ GameObject:
   - component: {fileID: 1649720710}
   - component: {fileID: 1649720709}
   - component: {fileID: 1649720708}
+  - component: {fileID: 1649720711}
   m_Layer: 0
   m_Name: Platform (8)
   m_TagString: Ground
@@ -3168,7 +3227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0ffa21a4ef7bde845b29614af0a97799, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3198,6 +3257,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649720706}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1649720711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649720706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb04d1c797c341208f738f4b53fb541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 1919332046}
 --- !u!1 &1672979918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,8 +3280,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1672979919}
   - component: {fileID: 1672979920}
+  - component: {fileID: 1672979921}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: SpotLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3292,6 +3365,27 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &1672979921
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672979918}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ee32465960b042f0bf9892263c446ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1834935905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3536,7 +3630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6043585168273139304, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 6779035010085919616, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
       propertyPath: m_IsActive

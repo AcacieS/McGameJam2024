@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoMove : MonoBehaviour
+public class Move : MonoBehaviour
 {
     public GameObject playerCharacter;
     // Start is called before the first frame update
@@ -20,9 +20,9 @@ public class NoMove : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("hey??");
-        if(collision.gameObject.name == "ball"){
-            Debug.Log("hey");
-            playerCharacter.GetComponent<PlayerController>().enabled =false;  
+        if(collision.gameObject.name == "secondBall"){
+            Debug.Log("are you here");
+            playerCharacter.GetComponent<PlayerController>().enabled = true;  
         }
     }
 }
