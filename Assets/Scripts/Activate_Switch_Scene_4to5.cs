@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Activate_Switch_Scene_4to5 : MonoBehaviour
