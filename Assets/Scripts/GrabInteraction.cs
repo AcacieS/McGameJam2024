@@ -6,6 +6,7 @@ class Grabbable: Interaction {
     private Transform parentTransform;
 
     private InteractionManager interaction;
+    private bool isGrabbed = false;
 
     public new void Start() {
         base.Start();
@@ -16,6 +17,10 @@ class Grabbable: Interaction {
         Debug.Log("Dropped " + title);
         gameObject.transform.SetParent(parentTransform);
         interaction.grabbedObject = null;
+        isGrabbed = false;
+    }
+    public override bool IsAvailable(){
+        return !isGrabbed;
     }
 
     public override void OnAction()
@@ -24,5 +29,6 @@ class Grabbable: Interaction {
         parentTransform = gameObject.transform.parent;
         gameObject.transform.SetParent(camera.transform);
         interaction.grabbedObject = gameObject;
+        isGrabbed = true;
     }
 }

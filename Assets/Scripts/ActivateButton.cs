@@ -6,6 +6,7 @@ using UnityEngine;
 public class ActivateButton : MonoBehaviour
 {
     public GameObject cubeObject;
+    public GameObject spotLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,12 @@ public class ActivateButton : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Cube"){
+        if(collision.gameObject.name == "Cube"||collision.gameObject.name == "Player2"){
             gameObject.GetComponent<Animator>().enabled = true;
+            if(collision.gameObject.name == "Player2"){
+                Debug.Log("?????");
+                spotLight.GetComponent<Animator>().enabled = true;
+            }
         }
 
     }

@@ -90,5 +90,9 @@ class InteractionManager : MonoBehaviour
         {
             interactionObject?.GetComponent<Interaction>().OnAction();
         }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            grabbedObject?.GetComponent<Grabbable>().OnDrop();
+        }
     }
 }
