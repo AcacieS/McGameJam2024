@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class transitionTutotoReal : MonoBehaviour
+public class TransitionTutotoReal : MonoBehaviour
 {
     public void PlayReal()
     {
