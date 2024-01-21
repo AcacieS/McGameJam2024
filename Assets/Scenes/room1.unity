@@ -328,6 +328,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+--- !u!1 &834753150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6779035010085919616, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
+  m_PrefabInstance: {fileID: 336716085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &834753151 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5735115107144072484, guid: b17b7db787c7d4d60afa639300e1dc36, type: 3}
@@ -626,8 +631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d89d661410a04a89a40c04c2072982d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraRoom1: {fileID: 1449616139}
-  mainCamera: {fileID: 834753151}
+  cameraRoom1: {fileID: 1449616137}
+  mainCamera: {fileID: 834753150}
 --- !u!1 &1411514923
 GameObject:
   m_ObjectHideFlags: 0
