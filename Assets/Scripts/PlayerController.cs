@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         //playerAudio = GetComponent<AudioSource>();
 
-        Physics.gravity *= gravityModifier;
+        
         //playerAudio.loop = true;
     }
 
