@@ -256,6 +256,7 @@ public class ChessBoardManager : MonoBehaviour
         else
         {
             Debug.Log("No move found");
+            winSphere.GetComponent<AudioSource>().enabled = true;
             winSphere.SetActive(true);
         }
         chessBoard.PrintBoard();
