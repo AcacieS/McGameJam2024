@@ -1,5 +1,9 @@
 # McGameJam2024
 
+Github Repository:
+
+https://github.com/AcacieS/mcgamejam2024
+
 ## Get Out
 
 ### Team
@@ -34,6 +38,8 @@ The game has too many levels and the judges didn't have enough time to visit all
 
 Too many levels also means less time to polish every level. We didn't test the game binaries. Most of the tests are conducted on individual scenes, therefore, game-breaking side-effects accumulated, e.g. modifications on `Physics.gravity`.
 
+We didn't sleep enough. During the 3 days of the event, most team members only slept for 4-6 hours in total.
+
 ## LICENSE
 
-Please see the LICENSE file for more information.
+Please see the LICENSE file for more information in the root directory of this repository.
