@@ -28,6 +28,12 @@ This game features a Minimax AI for the Chess Game at the last level. The implem
 
 The gravity is slightly broken. The player jumps too high.
 
+### Execution Issues
+
+The game has too many levels and the judges didn't have enough time to visit all the rooms, especially since the 3D model rooms are placed at the end of the game. During the demo, we used a laptop that was lacking in performance. The game was hard to play.
+
+Too many levels also means less time to polish every level. We didn't test the game binaries. Most of the tests are conducted on individual scenes, therefore, game-breaking side-effects accumulated, e.g. modifications on `Physics.gravity`.
+
 ## LICENSE
 
 Please see the LICENSE file for more information.
