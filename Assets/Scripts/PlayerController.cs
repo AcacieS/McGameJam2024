@@ -31,15 +31,14 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && playerRb.velocity.y < 0.1)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
         Vector3 forward = new(camera.transform.forward.x, 0, camera.transform.forward.z);
         Vector3 left = Quaternion.AngleAxis(90, Vector3.up) * forward;
-        transform.Translate(forward * speed * Time.deltaTime * verticalInput);
-        transform.Translate(left * speed * Time.deltaTime * horizontalInput);
+        playerRb.velocity = (speed * verticalInput * forward) + (horizontalInput * speed * left) + (Vector3.up * playerRb.velocity.y);
         
     }
     private void OnCollisionEnter(Collision collision)
