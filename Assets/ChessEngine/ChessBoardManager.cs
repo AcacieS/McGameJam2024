@@ -84,9 +84,7 @@ public class ChessBoardManager : MonoBehaviour
         AddPiece(new BishopPiece(true), 5, 0);
         AddPiece(new KnightPiece(true), 6, 0);
         AddPiece(new RookPiece(true), 7, 0);
-
-       
-
+        
         AddPiece(new RookPiece(false), 0, 7);
         AddPiece(new KnightPiece(false), 1, 7);
         AddPiece(new BishopPiece(false), 2, 7);
@@ -96,23 +94,23 @@ public class ChessBoardManager : MonoBehaviour
         AddPiece(new KnightPiece(false), 6, 7);
         AddPiece(new RookPiece(false), 7, 7);
 
-        // AddPiece(new PawnPiece(true), 0, 1);
-        // AddPiece(new PawnPiece(true), 1, 1);
-        // AddPiece(new PawnPiece(true), 2, 1);
-        // AddPiece(new PawnPiece(true), 3, 1);
-        // AddPiece(new PawnPiece(true), 4, 1);
-        // AddPiece(new PawnPiece(true), 5, 1);
-        // AddPiece(new PawnPiece(true), 6, 1);
-        // AddPiece(new PawnPiece(true), 7, 1);
+        AddPiece(new PawnPiece(true), 0, 1);
+        AddPiece(new PawnPiece(true), 1, 1);
+        AddPiece(new PawnPiece(true), 2, 1);
+        AddPiece(new PawnPiece(true), 3, 1);
+        AddPiece(new PawnPiece(true), 4, 1);
+        AddPiece(new PawnPiece(true), 5, 1);
+        AddPiece(new PawnPiece(true), 6, 1);
+        AddPiece(new PawnPiece(true), 7, 1);
 
-        // AddPiece(new PawnPiece(false), 0, 6);
-        // AddPiece(new PawnPiece(false), 1, 6);
-        // AddPiece(new PawnPiece(false), 2, 6);
-        // AddPiece(new PawnPiece(false), 3, 6);
-        // AddPiece(new PawnPiece(false), 4, 6);
-        // AddPiece(new PawnPiece(false), 5, 6);
-        // AddPiece(new PawnPiece(false), 6, 6);
-        // AddPiece(new PawnPiece(false), 7, 6);
+        AddPiece(new PawnPiece(false), 0, 6);
+        AddPiece(new PawnPiece(false), 1, 6);
+        AddPiece(new PawnPiece(false), 2, 6);
+        AddPiece(new PawnPiece(false), 3, 6);
+        AddPiece(new PawnPiece(false), 4, 6);
+        AddPiece(new PawnPiece(false), 5, 6);
+        AddPiece(new PawnPiece(false), 6, 6);
+        AddPiece(new PawnPiece(false), 7, 6);
 
 
     }

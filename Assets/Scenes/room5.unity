@@ -1484,6 +1484,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2659222022289058477, guid: 4cf0476a616ee4e03b67d3c19454923d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4cf0476a616ee4e03b67d3c19454923d, type: 3}
       propertyPath: m_Name
       value: GameJam_Library_Final
